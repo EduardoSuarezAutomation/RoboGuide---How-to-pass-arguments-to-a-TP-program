@@ -1,0 +1,43 @@
+PROGRAM Read_Arg_KL
+%COMMENT = 'Read Arg KL'
+%NOLOCKGROUP
+%NOPAUSE = ERROR+COMMAND+TPENABLE 
+%INCLUDE KLEVKEYS
+
+VAR
+param_no: INTEGER
+data_type : INTEGER
+int_value : INTEGER
+real_value : REAL
+str_value : STRING [10]
+status : INTEGER
+
+ROUTINE Clr_Scr FROM Clr_Screen_KL
+
+BEGIN
+	
+	Clr_Scr
+	
+	FOR param_no = 1 TO 8 DO
+	
+	GET_TPE_PRM(param_no, data_type, int_value, real_value, str_value, status)
+	
+	IF status <> 0 THEN
+		POST_ERR(status, '', 0, 2)
+	ENDIF
+
+	IF data_type = 1 THEN
+		WRITE('AR[', param_no, ']', int_value, ' - Integer Type', CR)
+	ENDIF
+	
+	IF data_type = 2 THEN
+		WRITE('AR[', param_no, ']', real_value, ' - Real Type', CR)
+	ENDIF
+	
+	IF data_type = 3 THEN
+		WRITE('AR[', param_no, ']', str_value, ' - String Type', CR)
+	ENDIF
+	
+	ENDFOR
+
+END Read_Arg_KL

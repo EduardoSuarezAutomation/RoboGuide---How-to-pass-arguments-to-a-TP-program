@@ -1,0 +1,22 @@
+PROGRAM Clr_Screen_KL
+%COMMENT = 'Clr Screen KL'
+%NOLOCKGROUP
+
+ROUTINE Clr_Scr
+BEGIN
+	
+	WRITE (CHR(128), CHR(137)) -- By default this will clear TPDISPLAY
+	WRITE TPERROR  (CR, '                                       ', CR)
+	WRITE TPSTATUS (CR, '                                        ', CR)
+	WRITE TPPROMPT(CR, '                                        ', CR)
+	WRITE TPFUNC      (CR, '                                        ', CR)
+	FORCE_SPMENU(TP_PANEL, SPI_TPUSER, 1) -- Forces the Teach Pendant USER screen
+													-- to be visible	
+END Clr_Scr
+
+BEGIN
+	
+	-- Calls the routine
+	Clr_Scr
+	
+END Clr_Screen_KL

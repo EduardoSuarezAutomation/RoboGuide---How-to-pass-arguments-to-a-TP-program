@@ -1,0 +1,13 @@
+[PROGRAM]
+NAME = "PICKR_PLACEL"
+ARGUMENT = '8'
+[ARGUMENT]
+N01 = "UF Pick" : '0'
+N02 = "UF Place" : '0'
+N03 = "Spd Ovr" : '0'
+N04 = "PR Pick Start" : '0'
+N05 = "PR Pick Offset" : '0'
+N06 = "PR Place Start" :'0'
+N07 = "PR Place Offset" :'0'
+N08 = "Z-axis TF Offset" : '0'
+[ENDPROGRAM]
